@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Open Manager as User"
+            id="org.grits.toolbox.editor.samplemanager.command.manage"
+            name="Open Manager as User">
+      </command>
+      <command
+            description="Open Manager as Admin"
+            id="org.grits.toolbox.editor.samplemanager.command.adminmanage"
+            name="Open Manager as Admin">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.grits.toolbox.core.menu.main">
+         <menu
+               id="manager"
+               label="Manager">
+            <command
+                  commandId="org.grits.toolbox.editor.samplemanager.command.manage"
+                  label="User Mode"
+                  style="push">
+            </command>
+            <command
+                  commandId="org.grits.toolbox.editor.samplemanager.command.adminmanage"
+                  label="Admin Mode"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.grits.toolbox.editor.samplemanager.command.OpenManagerInUserMode"
+            commandId="org.grits.toolbox.editor.samplemanager.command.manage">
+      </handler>
+      <handler
+            class="org.grits.toolbox.editor.samplemanager.command.OpenManagerInAdminMode"
+            commandId="org.grits.toolbox.editor.samplemanager.command.adminmanage">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.grits.toolbox.editor.samplemanager.ManagementEditor"
+            default="false"
+            icon="icons/gear.png"
+            id="org.grits.toolbox.editor.samplemanager.managementEditor"
+            name="Meta Data Manager">
+      </editor>
+   </extension>
+
+</plugin>
